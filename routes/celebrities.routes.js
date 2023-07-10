@@ -10,17 +10,24 @@ const Celeb = require('../models/Celebrity.model')
 module.exports = router
 
 
-router.get('/' , (request ,  response) =>{
+router.get('/' , async (request ,  response) =>{
+    const allCelebs =  await Celeb.find()
+    console.log(allCelebs)
 
-    response.render("celebrities/celebrities")
+    response.render("celebrities/celebrities", {celebs: allCelebs})
 })
 
 
 
 router.get('/create' , async(request ,  response) =>{
-
-
+try{
     response.render("celebrities/new-celebritie")
+}
+catch (error) {
+    console.log(error)
+}
+
+    
 })
 
 router.post('/create', async(req , res) => {
