@@ -16,7 +16,7 @@ const moviesSchema = new Schema ({
     cast : [
         {
         type: Schema.Types.ObjectId,
-        ref:"Celeb"
+        ref:"Celeb" // need to be the same name of the collection 
         }
         ]
 
